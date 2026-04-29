@@ -1,0 +1,122 @@
+## ASP.NET Core Web API - .gitignore
+## Projet : Lbal API
+
+# ============================================
+# 🔧 BUILD & OUTPUT
+# ============================================
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+build/
+dist/
+
+# ============================================
+# 🎯 VISUAL STUDIO / RIDER
+# ============================================
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# ============================================
+# 📦 NUGET
+# ============================================
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ============================================
+# 🔐 SECRETS & CONFIGURATION SENSIBLE
+# ============================================
+appsettings.Development.json
+appsettings.Local.json
+appsettings.Production.json
+secrets.json
+.env
+.env.*
+*.pfx
+*.p12
+*.key
+*.pem
+
+# ============================================
+# 🗄️ BASE DE DONNÉES LOCALE
+# ============================================
+*.mdf
+*.ldf
+*.ndf
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# ============================================
+# 🐳 DOCKER (optionnel - décommenter si besoin)
+# ============================================
+# .dockerignore
+# docker-compose.override.yml
+
+# ============================================
+# 📊 TEST & COVERAGE
+# ============================================
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+*.trx
+
+# ============================================
+# 🖥️ OS - Windows / Mac / Linux
+# ============================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+
+# ============================================
+# 📝 LOGS & TEMP
+# ============================================
+*.log
+*.tmp
+*.temp
+*.cache
+~$*
+
+# ============================================
+# ☁️ AZURE / PUBLISH
+# ============================================
+PublishProfiles/
+*.pubxml
+*.pubxml.user
+*.publishsettings
+orleans.codegen.cs
