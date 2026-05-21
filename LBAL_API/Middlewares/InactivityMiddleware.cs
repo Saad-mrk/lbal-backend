@@ -1,5 +1,5 @@
 ﻿using System.Security.Claims;
-using LBAL.Domain.Interfaces;
+using Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
