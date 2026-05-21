@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LBAL.Application.DTOs;
+namespace Application.DTOs.Auth;
 
 public record RegisterRequest(
     string Nom,

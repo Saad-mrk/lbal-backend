@@ -1,6 +1,6 @@
-﻿using LBAL.Domain.Interfaces;
+﻿using Domain.Interfaces;
 
-namespace LBAL.Infrastructure.Security;
+namespace Infrastructure.Security;
 
 public class PasswordHasher : IPasswordHasher
 {

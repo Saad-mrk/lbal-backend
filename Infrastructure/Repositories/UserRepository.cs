@@ -1,18 +1,22 @@
-﻿using LBAL.Domain.Entities;
-using LBAL.Domain.Interfaces;
-using LBAL.Infrastructure.Data;
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace LBAL.Infrastructure.Repositories;
+namespace Infrastructure.Repositories;
 
 public class UserRepository : IUserRepository
 {
     private readonly AppDbContext _context;
-
     public UserRepository(AppDbContext context) => _context = context;
+
+    public async Task<User?> GetByIdAsync(int id) => await _context.Users.FindAsync(id);
 
     public async Task<User?> GetByEmailAsync(string email)
         => await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+
+    // INDISPENSABLE pour les filtres et la pagination
+    public IQueryable<User> GetAllQueryable() => _context.Users.AsQueryable();
 
     public async Task AddAsync(User user)
     {
@@ -29,6 +33,9 @@ public class UserRepository : IUserRepository
     public async Task<bool> ExistsAsync(string email)
         => await _context.Users.AnyAsync(u => u.Email == email);
 
-    public async Task<User?> GetByIdAsync(int id)
-        => await _context.Users.FindAsync(id);
+    public async Task SaveChangesAsync() => await _context.SaveChangesAsync();
+    public async Task DeleteAsync(int id)
+    {
+
+    }
 }

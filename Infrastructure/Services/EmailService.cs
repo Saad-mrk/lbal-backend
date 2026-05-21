@@ -1,9 +1,9 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
-using LBAL.Domain.Interfaces;
+using Domain.Interfaces;
 using Microsoft.Extensions.Configuration;
 
-namespace LBAL.Infrastructure.Services;
+namespace Infrastructure.Services;
 
 public class EmailService : IEmailService
 {

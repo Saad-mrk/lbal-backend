@@ -1,17 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LBAL.Domain.Entities;
+﻿using Domain.Entities;
 
-namespace LBAL.Domain.Interfaces;
+namespace Domain.Interfaces;
 
 public interface IUserRepository
 {
+    // --- LECTURE ---
+    // On garde un seul GetById, pas besoin de deux méthodes identiques
     Task<User?> GetByIdAsync(int id);
     Task<User?> GetByEmailAsync(string email);
+    Task<bool> ExistsAsync(string email);
+
+    // --- RECHERCHE ET PAGINATION ---
+    // Cette méthode est la clé pour utiliser ton UserFilterDto
+    // On retourne IQueryable pour que le filtrage se fasse CÔTÉ BASE DE DONNÉES
+    IQueryable<User> GetAllQueryable();
+
+    // --- ÉCRITURE ---
     Task AddAsync(User user);
     Task UpdateAsync(User user);
-    Task<bool> ExistsAsync(string email);
+    Task DeleteAsync(int id); // Ajout du delete (souvent nécessaire)
+
+    // --- PERSISTANCE ---
+    Task SaveChangesAsync(); // Important pour valider les transactions
 }

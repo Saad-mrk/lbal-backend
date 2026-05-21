@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.DTOs;
+using Application.DTOs.Auth;
+using Domain.Entities;
+using Domain.Interfaces;
 
-using LBAL.Application.DTOs;
-using LBAL.Domain.Interfaces;
-
-namespace LBAL.Application.Interfaces;
+namespace Application.Interfaces;
 
 public interface IAuthService
 {
     Task<string> RegisterAsync(RegisterRequest request);
     Task<bool> VerifyEmailAsync(string email, string code);
-    Task<string> LoginAsync(LoginRequest request); // Retournera le JWT
-    Task UpdateLastConnectionAsync(int userId); // Nouvelle méthode pour mettre à jour la dernière connexion
-      
-    
+    Task<TokenRespnse> LoginAsync(LoginRequest request); // Retournera le JWT
+    Task<TokenRespnse> RefreshAsync(RefreshRequest refreshRequest);
+    Task LogoutAsync(LogoutRequest logoutRequest);
+
 }
